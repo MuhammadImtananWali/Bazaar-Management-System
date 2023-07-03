@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>eBazzar</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../stylessheets/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../stylessheets/css/flag-icon.min.css">
+    <link rel="stylesheet" href="../stylessheets/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="../stylessheets/css/font-awesome.css" />
+    <link rel="stylesheet" href="../stylessheets/css/bootstrap-datepicker.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../stylessheets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="../images/favicon.png" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/css/toastr.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/duotone.css" integrity="sha384-R3QzTxyukP03CMqKFe0ssp5wUvBPEyy9ZspCB+Y01fEjhMwcXixTyeot+S40+AjZ" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css" integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" crossorigin="anonymous"/>
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <%- include ("partials/nav_bar", {user:user}) %>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+      <%- include ("partials/sidebar", {user:user}) %>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row" id="proBanner">
+              <div class="col-12">
+                <span class="d-flex align-items-center purchase-popup">
+                  <p>Hi Mr. <%= user.name %> see your work shop</p>
+                  <span class="ml-auto"></span>
+                  <button type="button" class="btn purchase-button" data-toggle="modal" data-target="#exampleModal">
+                    Update Profile
+                  </button>
+                  <i class="fas fa-times" id="bannerClose"></i>
+                </span>
+              </div>
+            </div>
+
+            <!-- calender here  --->
+            <div class="d-xl-flex justify-content-between align-items-start">
+              <h2 class="text-dark font-weight-bold mb-2"> <%= user.name %> dashboard </h2>
+              <div class="d-sm-flex justify-content-xl-between align-items-center mb-2">
+                <div class="btn-group bg-white p-3" role="group" aria-label="Basic example">
+                  <button type="button" class="btn btn-link text-light py-0 border-right"><%= new Date().toLocaleString('en-us', {  weekday: 'long' }) %></button>
+                  <button type="button" class="btn btn-link text-dark py-0 border-right"><%= new Date().toLocaleString('en-us', {  month: 'long' }) %></button>
+                  <button type="button" class="btn btn-link text-light py-0"><%= new Date().getFullYear() %></button>
+                </div>
+                <div class="dropdown ml-0 ml-md-4 mt-2 mt-lg-0">
+                  <div class="btn-group bg-white p-3" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-link text-light py-0 border-right"><%= new Date().toLocaleString('en-us', {  weekday: 'long' }) %></button>
+                    <button type="button" class="btn btn-link text-dark py-0 border-right"><%= new Date().toLocaleString('en-us', {  month: 'long' }) %></button>
+                    <button type="button" class="btn btn-link text-light py-0"><%= new Date().getFullYear() %></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <%- include ("dashboard/dashboard.ejs", {user:user}) %>
+          </div>
+          
+          <!-- Button trigger modal -->
+          <%- include ("partials/update_modal", {User:user}) %>
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <footer class="footer">
+            <div class="footer-inner-wraper">
+              <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bazaar.com</span>
+              </div>
+            </div>
+          </footer>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="../js/vendor_bundle_base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="../js/chart.js"></script>
+    <script src="../js/progress_circles.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="../js/off-canvas.js"></script>
+    <script src="../js/collapse.js"></script>
+    <script src="../js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="../js/dashboard.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+    <!-- End custom js for this page -->
+  </body>
+</html>
